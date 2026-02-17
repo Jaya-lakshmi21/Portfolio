@@ -77,19 +77,19 @@ exports.sendContactEmail = async (req, res) => {
     console.log("MySQL Insert Success ✅");
 
     // 2️⃣ Try sending email (but don't crash)
-    try {
-      await transporter.sendMail({
-        from: process.env.EMAIL,
-        to: process.env.EMAIL,
-        subject: "New Contact Message",
-        text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-      });
+    // try {
+    //   await transporter.sendMail({
+    //     from: process.env.EMAIL,
+    //     to: process.env.EMAIL,
+    //     subject: "New Contact Message",
+    //     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    //   });
 
-      console.log("Email sent successfully ✅");
-    } catch (emailError) {
-      console.log("Email failed ❌ but continuing...");
-      console.log(emailError.message);
-    }
+    //   console.log("Email sent successfully ✅");
+    // } catch (emailError) {
+    //   console.log("Email failed ❌ but continuing...");
+    //   console.log(emailError.message);
+    // }
 
     // 3️⃣ Always return success
     return res.status(200).json({
